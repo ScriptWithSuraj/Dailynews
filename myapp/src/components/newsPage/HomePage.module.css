@@ -3,3 +3,17 @@
   background-color: #e9dfed;
   height: 100vw;
 }
+/* Define the styles for the cardContainer */
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Define the media query for smaller screens */
+@media screen and (max-width: 768px) {
+  /* Set the width of each card to 100% for smaller screens */
+  .cardContainer > * {
+    width: 100%;
+  }
+}
