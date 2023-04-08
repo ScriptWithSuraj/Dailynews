@@ -8,3 +8,11 @@ export const fetchnewsData = async () => {
     console.log(err);
   }
 };
+export const fetchTopNews = async () => {
+  try {
+    const response = await axios.get(url.topTechCrunch);
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+};
