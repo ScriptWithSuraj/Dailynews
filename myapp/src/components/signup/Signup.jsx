@@ -51,9 +51,17 @@ function Signup() {
             <Typography
               variant="h4"
               gutterBottom
-              sx={{ mt: 10, color: "#634aa6" }}
+              sx={{
+                mt: 6,
+                color: "#634aa6",
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
             >
-              Register Now
+              Sign Up
             </Typography>
             <TextField
               type="text"
@@ -69,6 +77,11 @@ function Signup() {
                   {
                     borderColor: "#634aa6", // Change this to the desired color
                   },
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             />
             <TextField
@@ -84,6 +97,11 @@ function Signup() {
                   {
                     borderColor: "#634aa6", // Change this to the desired color
                   },
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             />
             <TextField
@@ -99,6 +117,11 @@ function Signup() {
                   {
                     borderColor: "#634aa6",
                   },
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
               InputProps={{
                 endAdornment: (
@@ -121,6 +144,11 @@ function Signup() {
                 minWidth: 0,
                 borderRadius: 0,
                 textTransform: "none",
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
               onClick={() => navigate("/login")}
             >

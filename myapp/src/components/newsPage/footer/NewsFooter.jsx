@@ -26,16 +26,27 @@ const NewsFooter = () => {
   });
 
   return (
-    <FooterContainer id="footer">
-      <Link href="https://www.facebook.com/surajsingh.bisht1">
-        <FacebookIcon />
-      </Link>
-      <Link href="https://www.instagram.com/krissbisht/">
-        <InstagramIcon />
-      </Link>
-      <Link href="https://www.linkedin.com/in/suraj-bisht-46967b203/">
-        <LinkedInIcon />
-      </Link>
+    <FooterContainer
+      id="footer"
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: { xs: "column", sm: "row" },
+      }}
+    >
+      <div>
+        <Link href="https://www.facebook.com/surajsingh.bisht1">
+          <FacebookIcon />
+        </Link>
+        <Link href="https://www.instagram.com/krissbisht/">
+          <InstagramIcon />
+        </Link>
+        <Link href="https://www.linkedin.com/in/suraj-bisht-46967b203/">
+          <LinkedInIcon />
+        </Link>
+      </div>
       <p>&copy; 2023 Daily News. All rights reserved.</p>
     </FooterContainer>
   );

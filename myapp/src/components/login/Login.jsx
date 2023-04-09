@@ -13,6 +13,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useUserContext } from "../userContext.js";
 import { useNavigate } from "react-router-dom";
+import GoogleButton from "../googleButton/GoogleButton";
 function Login() {
   //   const nameRef = useRef();
   const navigate = useNavigate();
@@ -52,14 +53,30 @@ function Login() {
               flexDirection: "column",
               alignItems: "center",
               fontFamily: "Poppins",
+              padding: "1rem",
+              margin: "0 auto",
+              "@media (min-width:600px)": {
+                padding: "2rem",
+              },
+              "@media (min-width:960px)": {
+                padding: "3rem",
+              },
             }}
           >
             <Typography
               variant="h4"
               gutterBottom
-              sx={{ mt: 10, color: "#634aa6" }}
+              sx={{
+                // mt: 0,
+                color: "#634aa6",
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
             >
-              Login Here
+              Sign In
             </Typography>
             <TextField
               type="Email"
@@ -75,6 +92,11 @@ function Login() {
                   {
                     borderColor: "#634aa6", // Change this to the desired color
                   },
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             />
             <Box
@@ -98,6 +120,11 @@ function Login() {
                     {
                       borderColor: "#634aa6",
                     },
+                  transform: "scale(1)",
+                  transition: "transform 0.2s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
                 }}
                 InputProps={{
                   endAdornment: (
@@ -124,6 +151,11 @@ function Login() {
                     minWidth: 0,
                     borderRadius: 0,
                     textTransform: "none",
+                    transform: "scale(1)",
+                    transition: "transform 0.2s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
                   }}
                   onClick={handleForgotPass}
                 >
@@ -136,11 +168,25 @@ function Login() {
                     minWidth: 0,
                     borderRadius: 0,
                     textTransform: "none",
+                    transform: "scale(1)",
+                    transition: "transform 0.2s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
                   }}
                   onClick={() => navigate("/signup")}
                 >
                   dont't have an account?
                 </Button>
+                <Button
+                  sx={{
+                    transform: "scale(1)",
+                    transition: "transform 0.2s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                  }}
+                ></Button>
               </div>
             </Box>
             <Button
@@ -148,12 +194,27 @@ function Login() {
                 backgroundColor: "#634aa6",
                 fontWeight: "bold",
                 color: "black",
-                mt: 2,
+                // mt: 2,
+                mb: 1,
               }}
               type="submit"
             >
-              Login
+              Sign In
             </Button>
+            <Typography
+              sx={{
+                color: "black",
+                transform: "scale(1)",
+                mb: 1,
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
+            >
+              OR
+            </Typography>
+            <GoogleButton />
           </Box>
         </FormControl>
       </form>

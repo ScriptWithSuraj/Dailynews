@@ -27,9 +27,9 @@ const UserInfo = ({ open, onClose }) => {
           p: 4,
           borderRadius: 10,
           backgroundImage:
-            "url('https://images.pexels.com/photos/7598536/pexels-photo-7598536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+            "url('https://images.pexels.com/photos/158651/news-newsletter-newspaper-information-158651.jpeg?auto=compress&cs=tinysrgb&w=1600')",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
+          backgroundPosition: "top",
           backgroundSize: "cover",
         }}
       >
@@ -40,6 +40,19 @@ const UserInfo = ({ open, onClose }) => {
             margin="dense"
             fullWidth
             InputProps={{ readOnly: true }}
+            sx={{
+              "& input": {
+                fontWeight: "600",
+              },
+              "& label": {
+                fontWeight: "600",
+                color: "black",
+              },
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: "#634aa6",
+                },
+            }}
           />
           <TextField
             label="Email"
@@ -47,9 +60,30 @@ const UserInfo = ({ open, onClose }) => {
             margin="dense"
             fullWidth
             InputProps={{ readOnly: true }}
+            sx={{
+              "& input": {
+                fontWeight: "600",
+              },
+              "& label": {
+                fontWeight: "600",
+                color: "black",
+              },
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: "#634aa6",
+                },
+            }}
           />
           <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
-            <Button onClick={handleClose} sx={{ mr: 1 }}>
+            <Button
+              onClick={handleClose}
+              sx={{
+                mr: 1,
+                fontWeight: "bold",
+                color: "black",
+                backgroundColor: "lightgray",
+              }}
+            >
               Close
             </Button>
           </Box>

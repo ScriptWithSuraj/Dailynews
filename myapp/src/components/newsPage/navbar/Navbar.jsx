@@ -15,7 +15,6 @@ import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { useUserContext } from "../../userContext";
 import { useNavigate } from "react-router-dom";
 import UserInfo from "../../userInfo/UserInfo";
-
 const pages = [
   "HOME",
   "SPORTS",
@@ -25,6 +24,7 @@ const pages = [
   "CONTACT US",
 ];
 const settings = ["Profile", "Logout"];
+// smoothscroll.polyfill();
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -44,6 +44,7 @@ function ResponsiveAppBar() {
     if (id === "HOME") navigate("/");
     // if (id === "Blog") navigate("/blog");
     if (id === "CONTACT US") {
+      console.log("working fine");
       const footer = document.querySelector("#footer");
       footer.scrollIntoView({
         behavior: "smooth",
@@ -81,6 +82,11 @@ function ResponsiveAppBar() {
                 mr: 1,
                 // position: "absolute",
                 // left: "0px",
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             />
             <Typography
@@ -98,6 +104,11 @@ function ResponsiveAppBar() {
                 textDecoration: "none",
                 // position: "stati",
                 // // left: "100px",
+                transform: "scale(1)",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             >
               DAILY-NEWS
@@ -172,7 +183,16 @@ function ResponsiveAppBar() {
                 <Button
                   key={page}
                   onClick={() => handleCloseNavMenu(page)}
-                  sx={{ my: 2, color: "black", display: "block" }}
+                  sx={{
+                    my: 2,
+                    color: "black",
+                    display: "block",
+                    transform: "scale(1)",
+                    transition: "transform 0.2s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                  }}
                 >
                   {page}
                 </Button>
@@ -181,7 +201,17 @@ function ResponsiveAppBar() {
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton
+                  onClick={handleOpenUserMenu}
+                  sx={{
+                    p: 0,
+                    transform: "scale(1)",
+                    transition: "transform 0.2s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                  }}
+                >
                   <Avatar />
                 </IconButton>
               </Tooltip>

@@ -7,6 +7,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 const UserContext = createContext({});
 export const useUserContext = () => useContext(UserContext);
@@ -39,6 +41,12 @@ export const UserContextProvider = ({ children }) => {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   };
+  const loginWithGoogle = () => {
+    signInWithPopup(auth, new GoogleAuthProvider())
+      .then((res) => console.log(res))
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  };
   const logout = () => {
     signOut(auth);
   };
@@ -53,6 +61,7 @@ export const UserContextProvider = ({ children }) => {
     login,
     forgotPass,
     logout,
+    loginWithGoogle,
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
