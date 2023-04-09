@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { useUserContext } from "../../userContext";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["NEWS", "About Us"];
 const settings = ["Profile", "Logout"];
 
 function ResponsiveAppBar() {
@@ -40,7 +40,10 @@ function ResponsiveAppBar() {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "transparent", color: "black" }}
+      sx={{
+        backgroundColor: "transparent",
+        color: "black",
+      }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -60,7 +63,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            DailyNews
+            DAILY-NEWS
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

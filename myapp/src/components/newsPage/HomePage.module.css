@@ -1,18 +1,19 @@
 .landingPage {
   color: black;
   background-color: #e9dfed;
-  height: 100vw;
+  min-height: 100vh;
 }
 /* Define the styles for the cardContainer */
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
-
-/* Define the media query for smaller screens */
+.carWrapper {
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (max-width: 768px) {
-  /* Set the width of each card to 100% for smaller screens */
   .cardContainer > * {
     width: 100%;
   }

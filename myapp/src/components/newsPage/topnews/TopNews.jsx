@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Cards } from "../cards/Cards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
-
-// Import Swiper styles
+import styles from "./TopNews.Module.css";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Typography } from "@mui/material";
-
-// install Swiper modules
+import { EqualHeight } from "react-equal-height";
 SwiperCore.use([Autoplay]);
 
 export const TopNews = ({ dataSource }) => {
@@ -18,6 +16,8 @@ export const TopNews = ({ dataSource }) => {
       setNewsData(data.data);
     });
   }, []);
+
+  console.log(newsData.articles);
 
   return (
     <>
@@ -29,21 +29,25 @@ export const TopNews = ({ dataSource }) => {
       >
         TOP STORIES
       </Typography>
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
-        autoplay={{ delay: 2500 }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        {newsData.articles &&
-          newsData.articles.length > 0 &&
-          newsData.articles.map((news) => (
-            <SwiperSlide>
-              <Cards key={news.url} news={news} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
+      <EqualHeight>
+        <Swiper
+          // spaceBetween={1}
+          slidesPerView={"auto"}
+          autoplay={{ delay: 2500 }}
+        >
+          <div className={styles.cardContainer}>
+            {newsData.articles &&
+              newsData.articles.length > 0 &&
+              newsData.articles.map((news) => (
+                <SwiperSlide key={news.url}>
+                  <div className={styles.cardWrapper} key={news.url}>
+                    <Cards key={news.urlToImage} news={news} />
+                  </div>
+                </SwiperSlide>
+              ))}
+          </div>
+        </Swiper>
+      </EqualHeight>
     </>
   );
 };
