@@ -1,4 +1,6 @@
 .form {
   display: flex;
   justify-content: center;
+  min-height: 100vh;
+  background-color: #634aa6;
 }

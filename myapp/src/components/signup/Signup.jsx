@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Signup.module.css";
 import {
   TextField,
@@ -12,6 +12,7 @@ import {
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useUserContext } from "../userContext.js";
+import { useNavigate } from "react-router-dom";
 function Signup() {
   const nameRef = useRef();
   const emailRef = useRef();
@@ -19,7 +20,8 @@ function Signup() {
   const [passVisible, setPassVisisble] = useState(false);
   const handleClickShowPassword = () => setPassVisisble(!passVisible);
   const handleMouseDownPassword = (event) => event.preventDefault();
-  const { register } = useUserContext();
+  const { register, user } = useUserContext();
+  const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -27,6 +29,9 @@ function Signup() {
     const pass = passRef.current.value;
     if (email && name && pass) register(name, email, pass);
   };
+  useEffect(() => {
+    if (user) navigate("/");
+  });
   return (
     <div className={styles.form}>
       <form onSubmit={onSubmit}>
@@ -108,6 +113,19 @@ function Signup() {
                 ),
               }}
             />
+            <Button
+              variant="text"
+              sx={{
+                padding: 0,
+                mb: 2,
+                minWidth: 0,
+                borderRadius: 0,
+                textTransform: "none",
+              }}
+              onClick={() => navigate("/login")}
+            >
+              Alreay have an account?
+            </Button>
             <Button
               sx={{
                 backgroundColor: "#634aa6",

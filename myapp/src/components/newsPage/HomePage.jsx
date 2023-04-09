@@ -6,16 +6,24 @@ import { Cards } from "./cards/Cards";
 import { TopNews } from "./topnews/TopNews";
 import { fetchTopNews } from "../../api/api";
 import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import NewsFooter from "./footer/NewsFooter";
 
 export const HomePage = ({ dataSource }) => {
   const [newsData, setNewsData] = useState([]);
   const { user } = useUserContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    dataSource().then((data) => {
-      setNewsData(data);
-    });
-  }, []);
+    if (!user) {
+      navigate("/login");
+    } else {
+      dataSource().then((data) => {
+        console.log(user, "this is user1");
+        setNewsData(data);
+      });
+    }
+  }, [user]);
 
   return (
     <div className={styles.landingPage}>
@@ -38,6 +46,7 @@ export const HomePage = ({ dataSource }) => {
             ))}
         </div>
       </div>
+      <NewsFooter />
     </div>
   );
 };

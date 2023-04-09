@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Login.module.css";
 import {
   TextField,
@@ -12,8 +12,10 @@ import {
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useUserContext } from "../userContext.js";
+import { useNavigate } from "react-router-dom";
 function Login() {
   //   const nameRef = useRef();
+  const navigate = useNavigate();
   const emailRef = useRef();
   const passRef = useRef();
   const [passVisible, setPassVisisble] = useState(false);
@@ -24,6 +26,12 @@ function Login() {
     const email = emailRef.current.value;
     if (email) forgotPass(email).then(() => (emailRef.current.value = "  "));
   };
+  const { user } = useUserContext();
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  });
   const onSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -108,18 +116,32 @@ function Login() {
                   ),
                 }}
               />
-              <Button
-                variant="text"
-                sx={{
-                  padding: 0,
-                  minWidth: 0,
-                  borderRadius: 0,
-                  textTransform: "none",
-                }}
-                onClick={handleForgotPass}
-              >
-                forgot password?
-              </Button>
+              <div className={styles.loginButtonWrapper}>
+                <Button
+                  variant="text"
+                  sx={{
+                    padding: 0,
+                    minWidth: 0,
+                    borderRadius: 0,
+                    textTransform: "none",
+                  }}
+                  onClick={handleForgotPass}
+                >
+                  forgot password?
+                </Button>
+                <Button
+                  variant="text"
+                  sx={{
+                    padding: 0,
+                    minWidth: 0,
+                    borderRadius: 0,
+                    textTransform: "none",
+                  }}
+                  onClick={() => navigate("/signup")}
+                >
+                  dont't have an account?
+                </Button>
+              </div>
             </Box>
             <Button
               sx={{
