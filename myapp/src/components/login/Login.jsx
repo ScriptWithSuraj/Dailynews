@@ -14,6 +14,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useUserContext } from "../userContext.js";
 import { useNavigate } from "react-router-dom";
 import GoogleButton from "../googleButton/GoogleButton";
+// import styled from "styled-components";
 function Login() {
   //   const nameRef = useRef();
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ function Login() {
               width: 400,
               height: 400,
               backgroundColor: "#ebe2cc ",
-              borderRadius: "10px",
+              borderRadius: "30px",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -194,7 +195,11 @@ function Login() {
                 backgroundColor: "#634aa6",
                 fontWeight: "bold",
                 color: "black",
-                // mt: 2,
+                "&:hover": {
+                  // background: " rgb(2,0,36);",
+                  background:
+                    "radial-gradient(circle, rgba(63,94,251,1) 0%, #634aa6 100%)",
+                },
                 mb: 1,
               }}
               type="submit"
@@ -208,7 +213,7 @@ function Login() {
                 mb: 1,
                 transition: "transform 0.2s ease-in-out",
                 "&:hover": {
-                  transform: "scale(1.05)",
+                  transform: "scale(1.1)",
                 },
               }}
             >
